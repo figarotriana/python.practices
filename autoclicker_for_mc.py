@@ -10,6 +10,12 @@ Wait_time = 2
 Hour = time.strftime("%H:%M:%S")
 
 while True:
+    if keyboard.is_pressed('esc'):
+        print("STOPPED")
+        break
+    #so it doesn't repeat forever
+    
     time.sleep(Wait_time)
     keyboard.press_and_release('space')
-    print ("space bar at " + time.strftime("%H:%M:%S"))                
+    print ("space bar at " + time.strftime("%H:%M:%S"))
+      
