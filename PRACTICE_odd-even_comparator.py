@@ -16,5 +16,5 @@ while repeat == "y":
             print("That's not a valid imput, please type only y or n")
             continue
         else: break
-print("Good bye!")
+print("Good bye!!")
 #commit testing
