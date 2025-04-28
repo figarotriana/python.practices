@@ -1,10 +1,15 @@
+import datetime
+
 chat = list()
 while True:
-    message = input("""MESSAGE COUNTER
+    message = input("""vvvvv
+                    MESSAGE COUNTER
                      EXIT to close counter
                      COUNT to count messages so far
                      LOG to show previous messages
                     enter new message: """)
+    Time = datetime.datetime.now()
+    Time = (Time.strftime("%H:%M"))  # actual time for each message    
     if message.upper() == "EXIT":
         print("THANKS FOR COMING!")
         break
@@ -15,4 +20,5 @@ while True:
         for message in chat:
             print(message)
     else:
-        chat.append(message)
+        chat.append(f"{Time} - {message}")  # adding message to the log with message time
+        
