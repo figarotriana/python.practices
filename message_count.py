@@ -13,11 +13,16 @@ while True:
     Time = datetime.datetime.now()
     Time = (Time.strftime("%H:%M:%S"))  # actual time for each message    
     if message.upper() == "EXIT":
-        print("\033[103m\033[90m\033[1mTHANKS FOR COMING!\033[0m") # closing
-        break 
+        exit_confirmation = input("\033[103m\033[90m\033[1m Are you sure? (y/n): \033[0m") # Clearing terminal
+        if exit_confirmation.upper() == "Y":
+            print("\033[103m\033[90m\033[1mTHANKS FOR COMING!\033[0m")
+            break
+        elif exit_confirmation.lower() == "n":
+            print("\033[103m\033[90m\033[1mNOT CLOSED\033[0m")
+        else:
+            print("\033[103m\033[90m\033[1mINVALID INPUT, ABORTING\033[0m")
     elif message.upper() == "CLEAR":
         clear_confirmation = input("\033[103m\033[90m\033[1m Are you sure? (y/n): \033[0m") # Clearing terminal
-        
         if clear_confirmation.upper() == "Y":
             chat.clear()
             print("\033[103m\033[90m\033[1mCLEARED\033[0m")
