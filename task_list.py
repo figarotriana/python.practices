@@ -19,21 +19,23 @@ class tasklistuser:
 #Info = json.dump(tasks)  (pending)
 
 #Program display
-
-start = input("""Welcome! 
+start = 0
+while start.upper() not in ["A", "B"]:
+    start = input("""Welcome! 
             please type your prefferred option
             A: Log in
             B: Sign up
             """ )
-if start.upper == "A":
-    print("pending")
-elif start.upper == "B":
-    new_user = input("Please enter username: ")
-    new_password = input("Please enter your password: ")
-    password_confirmation = input("Please confirm your password: ")
-    while new_password != password_confirmation:
-        password_confirmation = input("Password confirmation doesn't match with Password, please try again: ")
-    tasklistuser(new_user, new_password)
-    print(new_user)
-else:
-    print ("option invalid, please try again")
+    if start.upper() == "A":
+        print("pending")
+        break
+    elif start.upper() == "B":
+        new_username = input("Please enter username: ")
+        new_password = input("Please enter your password: ")
+        password_confirmation = input("Please confirm your password: ")
+        while new_password != password_confirmation:
+            password_confirmation = input("Password confirmation doesn't match with Password, please try again: ")
+        new_username = tasklistuser(new_username, new_password, {})
+        break
+    else:
+        print ("option invalid, please try again")
