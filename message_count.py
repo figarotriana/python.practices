@@ -61,4 +61,4 @@ while True:
     elif message.strip():
         chat.append(f"{time_now} - {message}")  # adding message to the log with message time
 
-# I'm satisfied with this practice, I'm going yo do something else
+# I'm satisfied with this practice, I'm going to do something else

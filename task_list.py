@@ -12,10 +12,17 @@ c_danger = "\033[97m\033[101m\033[1m"
 
 #structure
 class tasklistuser:
-    def __init__(self, user, password, tasklist):
+    def __init__(self, user, password):
         self.user = user
         self.password = password
-        self.tasklist = tasklist
+        self.tasklist = {}
+        
+    def to_dict(self):
+         return {
+             "username": self.user,
+             "password": self.password,
+             "tasklist": self.tasklist
+         }
 #information
 
 """tasks = {
@@ -35,6 +42,8 @@ while start.upper() not in ["A", "B"]:
             {c_red}B:{c_reset} Sign up
             """ )
     if start.upper() == "A":
+        login_username = input("Please enter your username: ")
+        login_password = input("Please enter your password: ")
         print("pending")
         break
     elif start.upper() == "B":
@@ -42,8 +51,14 @@ while start.upper() not in ["A", "B"]:
         new_password = input("Please enter your password: ")
         password_confirmation = input("Please confirm your password: ")
         while new_password != password_confirmation:
-            password_confirmation = input("Password confirmation doesn't match with Password, please try again: ")
-        new_username = tasklistuser(new_username, new_password, {})
+            print("Password confirmation doesn't match with Password, please try again")
+            new_password = input("Please enter your password: ")
+            password_confirmation = input("Please confirm your password: ")
+        new_username = tasklistuser(new_username, new_password)
+        print("new user created",new_username.to_dict)
         break
     else:
         print ("option invalid, please try again")
+#Log in success, loading file
+with open("tasklistusers.json","w") as info:
+    tasklist_contents = json.load(info)
